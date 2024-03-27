@@ -1,0 +1,191 @@
+/* use border box for all elements */
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", Calibri; /* uses roboto, then calibri if not supported */
+    font-size: 14px; /* base size font */
+    line-height: 1.5; /* increased line height for readability*/
+    color: black; /* text color*/
+    background-color: #f4efeb; /* background color */
+    /* add margin, padding and border to the body */
+    margin: .5rem;
+    padding: .5rem;
+    border: 2px solid #523d35;
+}
+
+
+
+/* eliminates extra spacing between name and  info */
+header p{
+    padding: 2px;
+    margin: 1px;
+}
+
+/* moves contact information to the bottom of the header */
+#pInfo{
+    animation: 1.5s ease-out 0s 1 slideInLeft;
+}
+
+/* makes display of section in header as a flex box. moved each div onto x-axis and centered. */
+#headerCont{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+/* rounds out picture and adds border */
+img{
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    animation: 1.5s ease-out 0s 1 slideInLeft;
+}
+
+/* added borders to each section in main. hr was removed from html file */
+main section{
+    border-top: 0.7px black solid;
+    margin:auto;
+    padding: 15px;
+}   
+
+/* makes indentation for div in each section in main */
+main section div, table{
+    padding: 0 5px;
+    animation: opacityIncrease 3s;
+}
+
+/* Styles h1 to be bolder and added slight shadow for emphasis*/
+h1{
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    text-shadow: 2px 2px 5px #d2c0b2;
+    letter-spacing: 8px;
+    padding: 1px;
+    margin:2px;
+    /* adds animation so that h1 slides when page loads */
+    animation: 1s ease-out 0s 1 slideInLeft;
+
+}
+/* adds a keyframe called "slideInLeft", which slides the property to place from the left. This animation will be used in the header. Source: https://www.w3docs.com/snippets/css/how-to-create-animation-on-page-load.html */
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+/* adds keyframe called "opacityIncrease" which gains opacity after refresh */
+  @keyframes opacityIncrease {
+    0% {
+        opacity:0%;
+    }
+    100% {
+        opacity:100%;
+    }
+  }
+
+/* styles h2 to be bold and has larger letter spacing*/
+h2{
+    letter-spacing: 2px;
+    font-weight: bold;
+    /* set margin to auto. added padding on the bottom to prepare for section or div */
+    margin: auto;
+    padding-bottom: 4px;
+    animation: opacityIncrease 2s;
+}
+
+/* styles h3 to be italic */
+h3{
+    font-style: italic; 
+    /* adds margin to each h3*/
+    margin: 2px;
+    animation: opacityIncrease 2.5s;
+}
+
+/* add outline to table and gives more spacing between cells */
+th,td{
+    outline: 1px black solid;
+    width: 10rem;
+    text-align: center;
+    font-size: 0.9em
+}
+
+
+/* aligns text in footer and makes border around the footer */
+footer{
+    text-align: center;
+    /* adds padding */
+    padding: 1rem;
+    border: #d2c0b2 solid 2px;
+    border-radius: 20px;
+}
+
+/* remove outline from elements for cleaner look */
+form input, form textarea{
+    outline:none;
+}
+
+/* adds padding, margin, borders, and background color to form button */
+form button{
+    padding: 2px 15px;
+    border: 1px solid #523d35;
+    background-color:#d2c0b2;
+    margin: 0.8rem 0.5rem;
+}
+/* changes to white when button is hovered */
+button:hover{
+    background-color: white;
+}
+
+/* removes any text decoration from link. color is set to lighter shade of normal font */
+a{
+    text-decoration:none;
+    color: #283635;
+}
+
+/* linkedin and github links turn gray when hovered. transition added.  */
+a:hover{
+    color: gray;
+    transition: color 0.5s;
+}
+
+/* media query added for when the width of the screen is larger than 480 */
+@media (min-width:480px) {
+    /* font size, margin, and padding increases when the page width is over 480*/
+    body {
+        font-size: 17px; 
+        margin: 2rem;
+        padding: 1rem;
+    }
+
+    /* increase in indention for larger screen sizes */
+    main section div, table{
+        padding: 0 20px;
+    }    
+
+    /* picture gets larger in larger screensize */
+    img{
+        width:230px;
+        height:230px;
+    }
+
+}
+
+/* media query added for when the width of the screen is larger than 550 */
+@media(min-width: 670px){
+    #headerCont{
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    #pInfo{
+        align-self: flex-end;
+    }
+}
